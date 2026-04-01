@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cantinho do Açaí - Pedido online de açaí e pastel com entrega rápida."
+    />
+    <title>Cantinho do Açaí</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        const path = window.location.pathname;
+        const isDistPage = /\/dist\/index\.html$/i.test(path);
+        const isViteDev =
+          window.location.hostname === "localhost" &&
+          /^517\d$/.test(window.location.port);
+
+        if (isViteDev) {
+          return;
+        }
+
+        if (!isDistPage) {
+          const basePath = path.replace(/index\.html?$/i, "");
+          const target =
+            basePath + "dist/index.html" + window.location.search + window.location.hash;
+          window.location.replace(target);
+        }
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
