@@ -1,36 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cantinho do Açaí | Delivery Premium</title>
     <meta
       name="description"
-      content="Cantinho do Açaí - Pedido online de açaí e pastel com entrega rápida."
+      content="Cantinho do Açaí - pedido online de açaí e pastel com visual profissional, cardápio interativo, carrinho e envio direto para WhatsApp."
     />
-    <title>Cantinho do Açaí</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      (function () {
-        const path = window.location.pathname;
-        const isDistPage = /\/dist\/index\.html$/i.test(path);
-        const isViteDev =
-          window.location.hostname === "localhost" &&
-          /^517\d$/.test(window.location.port);
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__glow"></div>
+        <div class="hero__content container">
+          <div class="hero__top">
+            <img src="logo.png" alt="Logo Cantinho do Açaí" class="hero__logo" />
+            <span class="hero__badge">Delivery Premium em Canoas</span>
+          </div>
 
-        if (isViteDev) {
-          return;
-        }
+          <div class="hero__grid">
+            <div class="hero__copy">
+              <p class="eyebrow">Cantinho do Açaí</p>
+              <h1>Açaí cremoso, pastel crocante e um pedido fácil de finalizar.</h1>
+              <p class="hero__text">
+                Um site profissional, responsivo e pronto para vender pelo celular. Monte seu pedido,
+                personalize os complementos e envie tudo para o WhatsApp em poucos toques.
+              </p>
 
-        if (!isDistPage) {
-          const basePath = path.replace(/index\.html?$/i, "");
-          const target =
-            basePath + "dist/index.html" + window.location.search + window.location.hash;
-          window.location.replace(target);
-        }
-      })();
-    </script>
-    <script type="module" src="/src/main.tsx"></script>
+              <div class="hero__actions">
+                <a href="#cardapio" class="btn btn--primary">Pedir agora</a>
+                <a href="#localizacao" class="btn btn--ghost">Ver localização</a>
+              </div>
+            </div>
+
+            <aside class="hero__info">
+              <article class="info-card">
+                <span class="info-card__label">Horário de funcionamento</span>
+                <strong>08:30 às 19:30</strong>
+              </article>
+              <article class="info-card">
+                <span class="info-card__label">WhatsApp</span>
+                <a href="https://wa.me/555185868972" target="_blank" rel="noreferrer">(51) 8586-8972</a>
+              </article>
+              <article class="info-card">
+                <span class="info-card__label">Instagram</span>
+                <a href="https://instagram.com/cantinho_do_acai_e_mercado" target="_blank" rel="noreferrer">@cantinho_do_acai_e_mercado</a>
+              </article>
+            </aside>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section--menu" id="cardapio">
+          <div class="container">
+            <div class="section__heading">
+              <p class="eyebrow">Cardápio</p>
+              <h2>Escolha seus favoritos</h2>
+              <p>
+                Categorias organizadas para facilitar seu pedido. Escolha o tamanho, personalize os
+                complementos e finalize pelo WhatsApp.
+              </p>
+            </div>
+
+            <div class="tabs" id="tabs"></div>
+            <div class="products-grid" id="products"></div>
+          </div>
+        </section>
+
+        <section class="section" id="localizacao">
+          <div class="container location-grid">
+            <div>
+              <p class="eyebrow">Localização</p>
+              <h2>Estamos prontos para te atender</h2>
+              <p class="location-copy">
+                Avenida Esperança, 1501, Guajuviras, Canoas/RS. Atendimento todos os dias com envio
+                rápido e cardápio completo.
+              </p>
+              <div class="location-actions">
+                <a
+                  class="btn btn--ghost"
+                  href="https://www.google.com/maps/search/?api=1&query=Avenida+Esperan%C3%A7a,+1501,+Guajuviras,+Canoas,+RS"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Abrir no Google Maps
+                </a>
+              </div>
+            </div>
+            <div class="map-card">
+              <iframe
+                title="Mapa Cantinho do Açaí"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Avenida%20Esperan%C3%A7a%2C%201501%2C%20Guajuviras%2C%20Canoas%2C%20RS&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer__grid">
+          <div>
+            <h3>Cantinho do Açaí</h3>
+            <p>Avenida Esperança, 1501, Guajuviras, Canoas/RS</p>
+          </div>
+          <div>
+            <h4>Contato</h4>
+            <p>@cantinho_do_acai_e_mercado</p>
+            <p>(51) 8586-8972</p>
+          </div>
+          <div>
+            <h4>Funcionamento</h4>
+            <p>Todos os dias: 08:30 às 19:30</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="drawer" id="customizerDrawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-drawer></div>
+      <div class="drawer__panel">
+        <button class="drawer__close" type="button" data-close-drawer aria-label="Fechar modal">×</button>
+        <div id="customizerContent"></div>
+      </div>
+    </div>
+
+    <div class="drawer" id="checkoutDrawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-checkout></div>
+      <div class="drawer__panel drawer__panel--checkout">
+        <button class="drawer__close" type="button" data-close-checkout aria-label="Fechar checkout">×</button>
+        <div class="checkout-layout">
+          <div>
+            <div class="drawer__header">
+              <p class="eyebrow">Finalizar pedido</p>
+              <h2>Enviar para WhatsApp</h2>
+            </div>
+
+            <form id="checkoutForm" class="checkout-form">
+              <div class="field-grid field-grid--2">
+                <label class="field">
+                  <span>Nome do cliente*</span>
+                  <input type="text" name="nome" required />
+                </label>
+                <label class="field">
+                  <span>Telefone*</span>
+                  <input type="tel" name="telefone" required />
+                </label>
+              </div>
+
+              <div class="field-grid field-grid--2">
+                <label class="field field--full">
+                  <span>Endereço completo*</span>
+                  <input type="text" name="endereco" required />
+                </label>
+                <label class="field">
+                  <span>Número*</span>
+                  <input type="text" name="numero" required />
+                </label>
+              </div>
+
+              <div class="field-grid field-grid--3">
+                <label class="field">
+                  <span>Complemento</span>
+                  <input type="text" name="complemento" />
+                </label>
+                <label class="field">
+                  <span>Bairro*</span>
+                  <input type="text" name="bairro" required />
+                </label>
+                <label class="field">
+                  <span>Referência</span>
+                  <input type="text" name="referencia" />
+                </label>
+              </div>
+
+              <div class="field-grid field-grid--2">
+                <label class="field">
+                  <span>Forma de pagamento*</span>
+                  <select name="pagamento" required>
+                    <option value="">Selecione</option>
+                    <option>Pix</option>
+                    <option>Dinheiro</option>
+                    <option>Cartão na entrega</option>
+                    <option>Cartão online</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>Troco para</span>
+                  <input type="text" name="troco" placeholder="Ex: 50,00" />
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Observações do pedido</span>
+                <textarea name="observacoes" rows="4"></textarea>
+              </label>
+            </form>
+          </div>
+
+          <aside class="checkout-summary" id="checkoutSummary"></aside>
+        </div>
+
+        <div class="drawer__footer checkout-footer">
+          <button class="btn btn--ghost" type="button" data-close-checkout>Voltar</button>
+          <button class="btn btn--primary" type="submit" form="checkoutForm">Enviar para WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-bar" id="cartBar" hidden>
+      <button class="cart-bar__button" type="button" id="openCheckoutBtn">
+        <div>
+          <span class="cart-bar__label">Seu carrinho</span>
+          <strong id="cartBarText">0 item · R$ 0,00</strong>
+        </div>
+        <span class="cart-bar__cta">Finalizar</span>
+      </button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
